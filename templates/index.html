@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2>Мои записи</h2>
+  <a class="btn" href="{{ url_for('new_entry') }}">+ Новая запись</a>
+  <ul>
+    {% for e in entries %}
+      <li>
+        <div>
+          <strong>{{ e.date.strftime('%Y-%m-%d') }}</strong> — {{ e.title }}
+        </div>
+        <div class="actions">
+          <a href="{{ url_for('view_entry', entry_id=e.id) }}">Просмотреть</a>
+          <button class="link-btn" onclick="copyShareLink('{{ url_for('share_entry', share_id=e.share_id, _external=True) }}')">Поделиться</button>
+          <form action="{{ url_for('delete_entry', entry_id=e.id) }}" method="post" style="display:inline;">
+            <button class="link-btn" onclick="return confirm('Удалить запись?')">Удалить</button>
+          </form>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

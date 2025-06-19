@@ -1,0 +1,11 @@
+<!-- register.html -->
+{% extends 'base.html' %}
+{% block body %}
+<h2>Register</h2>
+<form method="post">
+  <input name="username" placeholder="Username" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="password" type="password" placeholder="Password" required>
+  <button type="submit">Register</button>
+</form>
+{% endblock %}

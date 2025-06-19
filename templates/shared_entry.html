@@ -1,0 +1,9 @@
+<!-- shared_entry.html -->
+{% extends 'base.html' %}
+{% block body %}
+<article>
+  <h2>{{ entry.title }}</h2>
+  <p><em>{{ entry.date }}</em></p>
+  <div>{{ entry.content | replace('\n', '<br>') | safe }}</div>
+</article>
+{% endblock %}

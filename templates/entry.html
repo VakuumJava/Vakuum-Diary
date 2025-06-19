@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+  <article>
+    <h2>{{ entry.title }}</h2>
+    <p><em>{{ entry.date.strftime('%Y-%m-%d') }}</em></p>
+    <div>{{ entry.content | replace('\n','<br>') | safe }}</div>
+  </article>
+  <div class="actions" style="margin-top:1rem;">
+    <a href="{{ url_for('view_entry', entry_id=entry.id) }}">Просмотреть</a>
+    <button class="link-btn" onclick="copyShareLink('{{ url_for('share_entry', share_id=entry.share_id, _external=True) }}')">Поделиться</button>
+    <form action="{{ url_for('delete_entry', entry_id=entry.id) }}" method="post" style="display:inline;">
+      <button class="link-btn" onclick="return confirm('Удалить запись?')">Удалить</button>
+    </form>
+    <a href="{{ url_for('index') }}">Назад</a>
+  </div>
+{% endblock %}

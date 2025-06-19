@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2>Новая запись</h2>
+  <form method="post">
+    <label>Дата:<br>
+      <input type="date" name="date" required>
+    </label><br><br>
+    <label>Title:<br>
+      <input type="text" name="title" maxlength="100" required>
+    </label><br><br>
+    <label>Что было сегодня:<br>
+      <textarea name="content" rows="8" required></textarea>
+    </label><br><br>
+    <button type="submit">Сохранить</button>
+  </form>
+{% endblock %}
