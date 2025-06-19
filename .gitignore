@@ -6,3 +6,8 @@ __pycache__/
 # Исключаем локальную БД и переменные
 diary.db
 .env
+# SQLite
+instance
+# База и конфиги instance
+instance/
+instance/diary.db
