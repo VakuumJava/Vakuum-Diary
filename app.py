@@ -161,6 +161,7 @@ def delete_entry(entry_id):
     flash('Запись удалена')
     return redirect(url_for('index'))
 
+
 # Публичный просмотр по share_id
 @app.route('/share/<share_id>')
 def share_entry(share_id):
